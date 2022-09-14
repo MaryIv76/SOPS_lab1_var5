@@ -1,18 +1,62 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.database {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px -15px 20px;
+}
+
+.left-part {
+    width: 40%;
+    padding: 0 15px;
+}
+
+.select-option {
+    display: flex;
+    margin: 10px 0;
+}
+
+.select-option__left {
+    width: 30%;
+}
+
+.from-to {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-from {
+    width: 100px;
+    margin: 0 5px;
+    font-size: 16px;
+}
+
+.input-to {
+    width: 100px;
+    margin: 0 5px;
+    font-size: 16px;
 }

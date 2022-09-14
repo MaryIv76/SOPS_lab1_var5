@@ -16,14 +16,10 @@ namespace lab1_var5.Controllers
             db = context;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            return View(await db.User.ToListAsync());
-        }
-        /*public IActionResult Index()
+        public IActionResult Index()
         {
             return View();
-        }*/
+        }
 
         public IActionResult Privacy()
         {

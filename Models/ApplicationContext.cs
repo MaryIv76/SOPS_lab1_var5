@@ -4,7 +4,7 @@ namespace lab1_var5.Models
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<User> User { get; set; }
+        public DbSet<Player> Player { get; set; }
 
         public ApplicationContext()
         {
