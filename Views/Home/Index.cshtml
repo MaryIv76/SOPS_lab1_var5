@@ -86,6 +86,7 @@
                             <th>height</th>
                             <th>birthcity</th>
                             <th>birthstate</th>
+                            <th>photo</th>
                         </tr>
                         foreach (var item in Model)
                         {
@@ -100,6 +101,9 @@
                                 <td>@item.height</td>
                                 <td>@item.birthcity</td>
                                 <td>@item.birthstate</td>
+                                <td>
+                                    <a href="@Url.Action("ShowPhoto", "Home", new {id=item.playerid})" target="_blank" class="btn-show">Show</a>
+                                </td>
                             </tr>
                         }
                     }
@@ -108,3 +112,4 @@
         </div>
     </div>
 </div>
+

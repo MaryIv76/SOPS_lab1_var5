@@ -12,5 +12,6 @@
         public int? height { get; set; }
         public String? birthcity { get; set; }
         public String? birthstate { get; set; }
+        public String? photo { get; set; }
     }
 }

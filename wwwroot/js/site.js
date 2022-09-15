@@ -1,4 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿/* Save information in form after reloading */
+document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll('input').forEach(function (e) {
 

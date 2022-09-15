@@ -68,6 +68,11 @@ namespace lab1_var5.Controllers
             return true;
         }
 
+        public IActionResult ShowPhoto(String id)
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

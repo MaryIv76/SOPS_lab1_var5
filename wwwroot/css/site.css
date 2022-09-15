@@ -72,3 +72,17 @@ body {
     font-size: 28px;
     color: red;
 }
+
+.btn-show {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+}
