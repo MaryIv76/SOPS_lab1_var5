@@ -131,5 +131,18 @@ namespace lab1_var5.Models
             }
             return condition;
         }
+
+        public List<TrackRecord> getTrackRecordByQuery(String playerid)
+        {
+            String sqlRequest = $"SELECT * FROM trackRecordPlayer WHERE playerid LIKE \"{playerid}\"";
+            return db.TrackRecords.FromSqlRaw(sqlRequest).ToList();
+        }
+
+        public Player getPlayerById(String playerid)
+        {
+            String sqlRequest = $"SELECT * FROM roster WHERE playerid LIKE \"{playerid}\"";
+            List<Player> player = db.Player.FromSqlRaw(sqlRequest).ToList();
+            return player[0];
+        }
     }
 }

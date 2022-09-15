@@ -1,5 +1,8 @@
-﻿namespace lab1_var5.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace lab1_var5.Models
 {
+    [Keyless]
     public class TrackRecord
     {
         public String playerid { get; set; }
