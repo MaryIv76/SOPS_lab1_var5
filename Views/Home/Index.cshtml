@@ -4,7 +4,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="heading">Welcome to database CRITTERS</h1>
 </div>
 
 <div class="container">
@@ -16,7 +16,7 @@
                     <div class="select-option__left">
                         <div class="label-position">Position:</div>
                     </div>
-                    <select class="menu-position" name="position">
+                    <select class="menu-position" name="position" onchange="SaveSelectValue(this)">
                         <option value="no">not selected</option>
                         <option value="C">C - center forward</option>
                         <option value="LW">LW - left forward</option>
@@ -42,9 +42,9 @@
                     </div>
                     <div class="from-to">
                         <div class="label-from">from</div>
-                        <input class="input-from" type="text" name="minWeight" /><br />
+                        <input class="input-from" type="text" name="minWeight" id="minWeight" /><br />
                         <div class="label-to">to</div>
-                        <input class="input-to" type="text" name="maxWeight" /><br />
+                        <input class="input-to" type="text" name="maxWeight" id="maxWeight" /><br />
                     </div>
                 </div>
                 <div class="select-option">
@@ -53,48 +53,58 @@
                     </div>
                     <div class="from-to">
                         <div class="label-from">from</div>
-                        <input class="input-from" type="text" name="minHeight" /><br />
+                        <input class="input-from" type="text" name="minHeight" id="minHeight" /><br />
                         <div class="label-to">to</div>
-                        <input class="input-to" type="text" name="maxHeight" /><br />
+                        <input class="input-to" type="text" name="maxHeight" id="maxHeight" /><br />
                     </div>
                 </div>
-                <input type="submit" value="Find" />
+                <input type="submit" value="Find" name="but" />
             </form>
         </div>
         <div class="right-part">
-            <table class="table">
-                @if (Model != null)
-                {
-                    <tr>
-                        <th>playerid</th>
-                        <th>jersey</th>
-                        <th>fname</th>
-                        <th>sname</th>
-                        <th>position</th>
-                        <th>birthday</th>
-                        <th>weight</th>
-                        <th>height</th>
-                        <th>birthcity</th>
-                        <th>birthstate</th>
-                        </tr>
-                    foreach (var item in Model)
+            @if (ViewBag.Message == "Invalid input")
+            {
+                <div class="input-error">@ViewBag.Message</div>
+                <script>
+                    let elem = document.getElementById('@ViewBag.invalidParameter');
+                    elem.style.border = "1px solid red";
+                </script>
+            }
+            else
+            {
+                <table class="table">
+                    @if (Model != null)
                     {
                         <tr>
-                            <td>@item.playerid</td>
-                            <td>@item.jersey</td>
-                            <td>@item.fname</td>
-                            <td>@item.sname</td>
-                            <td>@item.position</td>
-                            <td>@item.birthday</td>
-                            <td>@item.weight</td>
-                            <td>@item.height</td>
-                            <td>@item.birthcity</td>
-                            <td>@item.birthstate</td>
+                            <th>playerid</th>
+                            <th>jersey</th>
+                            <th>fname</th>
+                            <th>sname</th>
+                            <th>position</th>
+                            <th>birthday</th>
+                            <th>weight</th>
+                            <th>height</th>
+                            <th>birthcity</th>
+                            <th>birthstate</th>
                         </tr>
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.playerid</td>
+                                <td>@item.jersey</td>
+                                <td>@item.fname</td>
+                                <td>@item.sname</td>
+                                <td>@item.position</td>
+                                <td>@item.birthday</td>
+                                <td>@item.weight</td>
+                                <td>@item.height</td>
+                                <td>@item.birthcity</td>
+                                <td>@item.birthstate</td>
+                            </tr>
+                        }
                     }
-                }
-            </table>
+                </table>
+            }
         </div>
     </div>
 </div>
-

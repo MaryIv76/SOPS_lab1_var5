@@ -31,7 +31,9 @@ namespace lab1_var5.Controllers
             String invalidParameter;
             if (!checkInput(findPlayer, out invalidParameter))
             {
-                return View("Invalid input", invalidParameter);
+                ViewBag.Message = "Invalid input";
+                ViewBag.invalidParameter = invalidParameter;
+                return View();
             }
 
             List<Player> playerByRequest = dbConnector.getPlayerByQuery(findPlayer);
@@ -45,7 +47,7 @@ namespace lab1_var5.Controllers
                 invalidParameter = "minWeight";
                 return false;
             }
-            if (findPlayer.minWeight > findPlayer.maxWeight)
+            if (findPlayer.minWeight > findPlayer.maxWeight || findPlayer.maxWeight < 0)
             {
                 invalidParameter = "maxWeight";
                 return false;
@@ -56,19 +58,14 @@ namespace lab1_var5.Controllers
                 invalidParameter = "minHeight";
                 return false;
             }
-            if (findPlayer.minHeight > findPlayer.maxHeight)
+            if (findPlayer.minHeight > findPlayer.maxHeight || findPlayer.maxHeight < 0)
             {
-                invalidParameter = "maxWeight";
+                invalidParameter = "maxHeight";
                 return false;
             }
 
             invalidParameter = "";
             return true;
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
