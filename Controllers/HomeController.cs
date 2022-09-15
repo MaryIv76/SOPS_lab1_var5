@@ -75,13 +75,7 @@ namespace lab1_var5.Controllers
             ViewBag.Photo = "../../" + player.photo;
             ViewBag.Fname = player.fname;
             ViewBag.Sname = player.sname;
-            Console.WriteLine("../../" + player.photo);
-            foreach(TrackRecord tr in trackRecordsByRequest)
-            {
-                Console.WriteLine(tr.season);
-                Console.WriteLine(tr.team);
-            }
-            return View();
+            return View(trackRecordsByRequest);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
