@@ -86,3 +86,33 @@ body {
     text-decoration: none;
     text-align: center;
 }
+
+.photo-item {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.player-photo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto 20px;
+}
+
+.photo-name {
+    text-align: center;
+}
+
+.records {
+    margin: 40px 0 20px;
+    text-align: center;
+}
+
+.record-name {
+    font-size: 22px;
+}
+
+.table-small {
+    width: 50%;
+    margin: 5px auto;
+}
