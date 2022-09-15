@@ -70,6 +70,17 @@ namespace lab1_var5.Controllers
 
         public IActionResult ShowPhoto(String id)
         {
+            List<TrackRecord> trackRecordsByRequest = dbConnector.getTrackRecordByQuery(id);
+            Player player = dbConnector.getPlayerById(id);
+            ViewBag.Photo = "../../" + player.photo;
+            ViewBag.Fname = player.fname;
+            ViewBag.Sname = player.sname;
+            Console.WriteLine("../../" + player.photo);
+            foreach(TrackRecord tr in trackRecordsByRequest)
+            {
+                Console.WriteLine(tr.season);
+                Console.WriteLine(tr.team);
+            }
             return View();
         }
 
