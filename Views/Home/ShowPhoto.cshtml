@@ -1,0 +1,29 @@
+﻿@model IEnumerable<lab1_var5.Models.TrackRecord>
+@{
+    ViewData["Title"] = "Track Record";
+}
+
+<div class="container">
+    <p class="photo-item">
+        <img class="player-photo" src=@ViewBag.Photo alt="">
+    </p>
+    <h3 class="photo-name">@ViewBag.Fname @ViewBag.Sname</h3>
+
+    <div class="records">
+        <h5 class="record-name">Track record of a player</h5>
+
+        <table class="table table-small">
+            <tr>
+                <th>season</th>
+                <th>team</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.season</td>
+                    <td>@item.team</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

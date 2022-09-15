@@ -1,21 +1,115 @@
-﻿@model IEnumerable<lab1_var5.Models.User>
+﻿@model IEnumerable<lab1_var5.Models.Player>
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="heading">Welcome to database CRITTERS</h1>
 </div>
 
-<h2>Список пользователей</h2>
-<table class="table">
-     <tr><th>Имя</th><th>Возраст</th></tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Age</td>
-        </tr>
-    }
-</table>
+<div class="container">
+    <div class="database">
+        <div class="left-part">
+            <h5>Select options to find players</h5>
+            <form method="post">
+                <div class="select-option">
+                    <div class="select-option__left">
+                        <div class="label-position">Position:</div>
+                    </div>
+                    <select class="menu-position" name="position" onchange="SaveSelectValue(this)">
+                        <option value="no">not selected</option>
+                        <option value="C">C - center forward</option>
+                        <option value="LW">LW - left forward</option>
+                        <option value="RW">RW - right forward</option>
+                        <option value="D">D - defender</option>
+                        <option value="G">G - goalkeeper</option>
+                    </select>
+                </div>
+                <div class="select-option">
+                    <div class="select-option__left">
+                        <div class="label-birthdate">Birth date:</div>
+                    </div>
+                    <div class="from-to">
+                        <div class="label-from">from</div>
+                        <input class="input-from" type="date" name="startBirthday" /><br />
+                        <div class="label-to">to</div>
+                        <input class="input-to" type="date" name="endBirthday" /><br />
+                    </div>
+                </div>
+                <div class="select-option">
+                    <div class="select-option__left">
+                        <div class="label-weight">Weight:</div>
+                    </div>
+                    <div class="from-to">
+                        <div class="label-from">from</div>
+                        <input class="input-from" type="text" name="minWeight" id="minWeight" /><br />
+                        <div class="label-to">to</div>
+                        <input class="input-to" type="text" name="maxWeight" id="maxWeight" /><br />
+                    </div>
+                </div>
+                <div class="select-option">
+                    <div class="select-option__left">
+                        <div class="label-height">Height:</div>
+                    </div>
+                    <div class="from-to">
+                        <div class="label-from">from</div>
+                        <input class="input-from" type="text" name="minHeight" id="minHeight" /><br />
+                        <div class="label-to">to</div>
+                        <input class="input-to" type="text" name="maxHeight" id="maxHeight" /><br />
+                    </div>
+                </div>
+                <input type="submit" value="Find" name="but" />
+            </form>
+        </div>
+        <div class="right-part">
+            @if (ViewBag.Message == "Invalid input")
+            {
+                <div class="input-error">@ViewBag.Message</div>
+                <script>
+                    let elem = document.getElementById('@ViewBag.invalidParameter');
+                    elem.style.border = "1px solid red";
+                </script>
+            }
+            else
+            {
+                <table class="table">
+                    @if (Model != null)
+                    {
+                        <tr>
+                            <th>playerid</th>
+                            <th>jersey</th>
+                            <th>fname</th>
+                            <th>sname</th>
+                            <th>position</th>
+                            <th>birthday</th>
+                            <th>weight</th>
+                            <th>height</th>
+                            <th>birthcity</th>
+                            <th>birthstate</th>
+                            <th>photo</th>
+                        </tr>
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.playerid</td>
+                                <td>@item.jersey</td>
+                                <td>@item.fname</td>
+                                <td>@item.sname</td>
+                                <td>@item.position</td>
+                                <td>@item.birthday</td>
+                                <td>@item.weight</td>
+                                <td>@item.height</td>
+                                <td>@item.birthcity</td>
+                                <td>@item.birthstate</td>
+                                <td>
+                                    <a href="@Url.Action("ShowPhoto", "Home", new {id=item.playerid})" target="_blank" class="btn-show">Show</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+        </div>
+    </div>
+</div>
+

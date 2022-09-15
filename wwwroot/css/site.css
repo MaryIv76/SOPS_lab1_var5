@@ -1,18 +1,118 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.heading {
+    font-family: 'Montserrat';
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.database {
+    margin: 30px -15px 20px;
+}
+
+.left-part {
+    width: 40%;
+    padding: 0 15px;
+}
+
+.right-part {
+    padding: 30px 0;
+}
+
+.select-option {
+    display: flex;
+    margin: 10px 0;
+}
+
+.select-option__left {
+    width: 30%;
+}
+
+.from-to {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-from {
+    width: 100px;
+    margin: 0 5px;
+    font-size: 16px;
+}
+
+.input-to {
+    width: 100px;
+    margin: 0 5px;
+    font-size: 16px;
+}
+
+.input-error {
+    margin: 0 10px;
+    font-size: 28px;
+    color: red;
+}
+
+.btn-show {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+}
+
+.photo-item {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.player-photo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto 20px;
+}
+
+.photo-name {
+    text-align: center;
+}
+
+.records {
+    margin: 40px 0 20px;
+    text-align: center;
+}
+
+.record-name {
+    font-size: 22px;
+}
+
+.table-small {
+    width: 50%;
+    margin: 5px auto;
 }
