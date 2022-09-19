@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace lab1_var5.Models
 {
+    [Table(name:"TrackRecordPlayer")]
     [Keyless]
     public class TrackRecord
     {

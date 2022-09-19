@@ -1,5 +1,8 @@
-﻿namespace lab1_var5.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace lab1_var5.Models
 {
+    [Table(name:"roster")]
     public class Player
     {
         public String playerid { get; set; }

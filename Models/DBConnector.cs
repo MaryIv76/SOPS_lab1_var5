@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 
 namespace lab1_var5.Models
 {
@@ -134,14 +133,13 @@ namespace lab1_var5.Models
 
         public List<TrackRecord> getTrackRecordByQuery(String playerid)
         {
-            String sqlRequest = $"SELECT * FROM trackRecordPlayer WHERE playerid LIKE \"{playerid}\"";
-            return db.TrackRecords.FromSqlRaw(sqlRequest).ToList();
+            var temp = db.TrackRecords.Where(player => player.playerid == playerid).Select(player => player).ToList();
+            return temp;
         }
 
         public Player getPlayerById(String playerid)
         {
-            String sqlRequest = $"SELECT * FROM roster WHERE playerid LIKE \"{playerid}\"";
-            List<Player> player = db.Player.FromSqlRaw(sqlRequest).ToList();
+            List<Player> player = db.Player.Where(player => player.playerid == playerid ).Select(player => player).ToList();
             return player[0];
         }
     }
